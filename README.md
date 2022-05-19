@@ -10,30 +10,46 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
+## Description
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package tries to give a twitter-like layout to images. Simply add one or mor images and watch the layout change.
 
-## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+![Screenshot_1652982814](https://user-images.githubusercontent.com/45544067/169372606-80aba81c-a8a2-406c-8112-347cf0eaac46.png)
+
+![Screenshot_1652982828](https://user-images.githubusercontent.com/45544067/169372676-f12edce6-8852-4c6d-a19c-9d672dc472f3.png)
+
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+import 'package:multi_image_layout/multi_image_viewer.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+import 'package:multi_image_layout/multi_image_viewer.dart';
+MultiImageViewer(
+  images: [
+    "https://picsum.photos/id/1/200/300",
+    "https://picsum.photos/id/2/200/300",
+    "https://picsum.photos/id/3/200/300",
+  ],
+ ),
 ```
 
-## Additional information
+## 🤝 Contributing
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a 👍 if you like this project!
+
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
