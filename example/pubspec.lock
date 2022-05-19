@@ -102,7 +102,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  multi_image_viewer:
+  multi_image_layout:
     dependency: "direct main"
     description:
       path: ".."
