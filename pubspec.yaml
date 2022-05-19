@@ -1,5 +1,5 @@
 name: multi_image_viewer
-description: A new Flutter package project.
+description: Package to view images in different layouts.
 version: 0.0.1
 homepage: https://github.com/donaldamadi/multi-image-viewer
 
