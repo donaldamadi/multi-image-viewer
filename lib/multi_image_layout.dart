@@ -402,8 +402,6 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   }
 
   void checkCaptionLength() {
-    debugPrint(widget.galleryItems!.length.toString());
-    debugPrint(widget.captions?.length.toString());
     if (widget.captions != null && widget.captions!.length == widget.galleryItems!.length) {
       showCaptions = true;
     }
