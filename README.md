@@ -12,7 +12,7 @@ and the Flutter guide for
 -->
 ## Description
 
-This package tries to give a twitter-like layout to images. Simply add one or mor images and watch the layout change.
+This package tries to give a twitter-like layout to images. Simply add one or more images and watch the layout change.
 
 
 ![Screenshot_1652982814](https://user-images.githubusercontent.com/45544067/169372606-80aba81c-a8a2-406c-8112-347cf0eaac46.png)

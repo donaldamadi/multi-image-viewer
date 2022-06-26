@@ -83,13 +83,18 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 30),
               Text("More than Four Images"),
               SizedBox(height: 10),
-              MultiImageViewer(images: [
-                "https://picsum.photos/id/1/200/300",
-                "https://picsum.photos/id/2/200/300",
-                "https://picsum.photos/id/3/200/300",
-                "https://picsum.photos/id/4/200/300",
-                "https://picsum.photos/id/5/200/300",
-              ]),
+              MultiImageViewer(
+                images: [
+                  "https://picsum.photos/id/1/200/300",
+                  "https://picsum.photos/id/2/200/300",
+                  "https://picsum.photos/id/3/200/300",
+                  "https://picsum.photos/id/4/200/300",
+                  "https://picsum.photos/id/5/200/300",
+                  "https://picsum.photos/id/5/200/300",
+                ],
+                textStyle:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+              ),
               SizedBox(height: 30),
             ],
           ),
