@@ -13,6 +13,7 @@ and the Flutter guide for
 ## Description
 
 This package tries to give a twitter-like layout to images. Simply add one or more images and watch the layout change.
+Captions can also be added to each image.
 
 
 ![Screenshot_1652982814](https://user-images.githubusercontent.com/45544067/169372606-80aba81c-a8a2-406c-8112-347cf0eaac46.png)
@@ -36,6 +37,13 @@ MultiImageViewer(
     "https://picsum.photos/id/2/200/300",
     "https://picsum.photos/id/3/200/300",
   ],
+  captions: [
+    "Caption 1",
+    "Caption 2",
+    "Caption 3",
+  ],
+  height: 200,
+  width: 200,
  ),
 ```
 
