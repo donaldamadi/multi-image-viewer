@@ -16,9 +16,11 @@ This package tries to give a twitter-like layout to images. Simply add one or mo
 Captions can also be added to each image.
 
 
-![Screenshot_1652982814](https://user-images.githubusercontent.com/45544067/169372606-80aba81c-a8a2-406c-8112-347cf0eaac46.png)
+![Screenshot_1656283282](https://user-images.githubusercontent.com/45544067/175837492-d73e2493-64d4-402d-aa98-1e87ddb70942.png)
 
-![Screenshot_1652982828](https://user-images.githubusercontent.com/45544067/169372676-f12edce6-8852-4c6d-a19c-9d672dc472f3.png)
+
+![Screenshot_1656283292](https://user-images.githubusercontent.com/45544067/175837509-accf5250-e616-46df-979a-ae0f4ea85133.png)
+
 
 
 ## Getting started
