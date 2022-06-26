@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              Text("Single Image"),
+              Text("Single(1) Image"),
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
@@ -51,16 +51,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(height: 30),
-              Text("Two Images"),
+              Text("Two(2) Images"),
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
                   "https://picsum.photos/id/1/200/300",
                   "https://picsum.photos/id/2/200/300",
                 ],
+                captions: [
+                  "Caption 1",
+                  "Caption 2",
+                ],
               ),
               SizedBox(height: 30),
-              Text("Three Images"),
+              Text("Three(3) Images"),
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
@@ -70,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(height: 30),
-              Text("Four Images"),
+              Text("Four(4) Images"),
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
@@ -81,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(height: 30),
-              Text("More than Four Images"),
+              Text("More than Four(4+) Images"),
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
@@ -92,8 +96,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   "https://picsum.photos/id/5/200/300",
                   "https://picsum.photos/id/5/200/300",
                 ],
-                textStyle:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                  fontSize: 23,
+                ),
               ),
               SizedBox(height: 30),
             ],
