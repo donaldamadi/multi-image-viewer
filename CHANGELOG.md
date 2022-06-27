@@ -1,3 +1,7 @@
+##0.0.4
+
+- Optimized code for maximum pub points
+
 ## 0.0.3
 
 - Made height and with parameters dynamic
