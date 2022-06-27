@@ -1,6 +1,6 @@
 name: multi_image_layout
 description: Package to view a list of network images in different layouts depending on their number.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/donaldamadi/multi-image-viewer
 
 environment:
