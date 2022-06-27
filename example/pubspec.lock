@@ -80,7 +80,7 @@ packages:
       name: image_downloader
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.20.1"
+    version: "0.31.0"
   lints:
     dependency: transitive
     description:
@@ -115,7 +115,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.4"
   path:
     dependency: transitive
     description:
