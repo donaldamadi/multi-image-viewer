@@ -10,24 +10,30 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
-## Description
+# Description
 
-This package tries to give a twitter-like layout to images. Simply add one or more images and watch the layout change.
+This package gives a twitter-like layout to images. Simply add one or more images and watch the layout change.
 Captions can also be added to each image.
-
 
 ![Screenshot_1656283282](https://user-images.githubusercontent.com/45544067/175837492-d73e2493-64d4-402d-aa98-1e87ddb70942.png)
 
-
 ![Screenshot_1656283292](https://user-images.githubusercontent.com/45544067/175837509-accf5250-e616-46df-979a-ae0f4ea85133.png)
-
-
 
 ## Getting started
 
 ```dart
 import 'package:multi_image_layout/multi_image_viewer.dart';
 ```
+
+### iOS
+
+Add the following keys to your Info.plist file, located in `<project root>/ios/Runner/Info.plist`:
+
+* `NSPhotoLibraryUsageDescription` - describe why your app needs permission for the photo library. This is called Privacy - Photo Library Usage Description in the visual editor.
+
+### Android
+
+* `android.permission.WRITE_EXTERNAL_STORAGE` - Permission for usage of external storage
 
 ## Usage
 
@@ -58,7 +64,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a 👍 if you like this project!
-
 
 ## 📝 License
 
