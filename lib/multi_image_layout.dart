@@ -1,6 +1,7 @@
 library multi_image_layout;
 
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:readmore/readmore.dart';
@@ -58,8 +59,7 @@ class MultiImageViewer extends StatelessWidget {
           width: width ?? defaultWidth,
           decoration: BoxDecoration(
             color: backgroundColor,
-            image: DecorationImage(
-                image: NetworkImage(images[0]), fit: BoxFit.cover),
+            image: DecorationImage(image: NetworkImage(images[0]), fit: BoxFit.cover),
             borderRadius: const BorderRadius.all(
               Radius.circular(5),
             ),
@@ -81,11 +81,8 @@ class MultiImageViewer extends StatelessWidget {
                   width: width == null ? defaultWidth / 2 : width! / 2,
                   decoration: BoxDecoration(
                       color: backgroundColor,
-                      image: DecorationImage(
-                          image: NetworkImage(images[0]), fit: BoxFit.cover),
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(5),
-                          bottomLeft: Radius.circular(5))),
+                      image: DecorationImage(image: NetworkImage(images[0]), fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(5), bottomLeft: Radius.circular(5))),
                 ),
               ),
             ),
@@ -100,11 +97,8 @@ class MultiImageViewer extends StatelessWidget {
                   width: width == null ? defaultWidth / 2 : width! / 2,
                   decoration: BoxDecoration(
                       color: backgroundColor,
-                      image: DecorationImage(
-                          image: NetworkImage(images[1]), fit: BoxFit.cover),
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(5),
-                          bottomRight: Radius.circular(5))),
+                      image: DecorationImage(image: NetworkImage(images[1]), fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.only(topRight: Radius.circular(5), bottomRight: Radius.circular(5))),
                 ),
               ),
             ),
@@ -127,11 +121,8 @@ class MultiImageViewer extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[0]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[0]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(topLeft: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -145,11 +136,8 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[1]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[1]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -166,11 +154,8 @@ class MultiImageViewer extends StatelessWidget {
                   width: width == null ? defaultWidth / 2 : width! / 2,
                   decoration: BoxDecoration(
                       color: backgroundColor,
-                      image: DecorationImage(
-                          image: NetworkImage(images[2]), fit: BoxFit.cover),
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(5),
-                          bottomRight: Radius.circular(5))),
+                      image: DecorationImage(image: NetworkImage(images[2]), fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.only(topRight: Radius.circular(5), bottomRight: Radius.circular(5))),
                 ),
               ),
             ),
@@ -194,11 +179,8 @@ class MultiImageViewer extends StatelessWidget {
                         // width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[0]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[0]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(topLeft: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -212,11 +194,8 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[1]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[1]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -236,11 +215,8 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[2]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[2]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(topRight: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -254,11 +230,8 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[3]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                bottomRight: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[3]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(bottomRight: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -284,11 +257,8 @@ class MultiImageViewer extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                             color: backgroundColor,
-                            image: DecorationImage(
-                                image: NetworkImage(images[0]),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(5))),
+                            image: DecorationImage(image: NetworkImage(images[0]), fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(topLeft: Radius.circular(5))),
                       ),
                     ),
                   ),
@@ -302,9 +272,7 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                           color: backgroundColor,
-                          image: DecorationImage(
-                              image: NetworkImage(images[1]),
-                              fit: BoxFit.cover),
+                          image: DecorationImage(image: NetworkImage(images[1]), fit: BoxFit.cover),
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(5),
                           ),
@@ -328,9 +296,7 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                           color: backgroundColor,
-                          image: DecorationImage(
-                              image: NetworkImage(images[2]),
-                              fit: BoxFit.cover),
+                          image: DecorationImage(image: NetworkImage(images[2]), fit: BoxFit.cover),
                           borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(5),
                           ),
@@ -348,9 +314,7 @@ class MultiImageViewer extends StatelessWidget {
                         width: width == null ? defaultWidth / 2 : width! / 2,
                         decoration: BoxDecoration(
                           color: backgroundColor,
-                          image: DecorationImage(
-                              image: NetworkImage(images[3]),
-                              fit: BoxFit.cover),
+                          image: DecorationImage(image: NetworkImage(images[3]), fit: BoxFit.cover),
                           borderRadius: const BorderRadius.only(
                             bottomRight: Radius.circular(5),
                           ),
@@ -362,9 +326,7 @@ class MultiImageViewer extends StatelessWidget {
                               bottomRight: Radius.circular(5),
                             ),
                           ),
-                          child: Center(
-                              child: Text("+${images.length - 4}",
-                                  style: textStyle)),
+                          child: Center(child: Text("+${images.length - 4}", style: textStyle)),
                         ),
                       ),
                     ),
@@ -382,8 +344,7 @@ class MultiImageViewer extends StatelessWidget {
 }
 
 /// View Image(s)
-void openImage(BuildContext context, final int index, List<String> unitImages,
-    List<String>? captions) {
+void openImage(BuildContext context, final int index, List<String> unitImages, List<String>? captions) {
   Navigator.push(
     context,
     MaterialPageRoute(
@@ -442,8 +403,7 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   }
 
   void checkCaptionLength() {
-    if (widget.captions != null &&
-        widget.captions!.length == widget.galleryItems!.length) {
+    if (widget.captions != null && widget.captions!.length == widget.galleryItems!.length) {
       showCaptions = true;
     }
   }
@@ -480,8 +440,7 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
           height: MediaQuery.of(context).size.height,
         ),
         child: Stack(
-          alignment:
-              showCaptions ? Alignment.bottomCenter : Alignment.bottomRight,
+          alignment: showCaptions ? Alignment.bottomCenter : Alignment.bottomRight,
           children: <Widget>[
             PhotoViewGallery.builder(
               scrollPhysics: const BouncingScrollPhysics(),
@@ -510,8 +469,7 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                       trimMode: TrimMode.Line,
                       trimCollapsedText: 'Show more',
                       trimExpandedText: 'Show less',
-                      moreStyle: const TextStyle(
-                          fontSize: 17.0, fontWeight: FontWeight.bold),
+                      moreStyle: const TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
                     )
                   : Text(
                       "Image ${currentIndex! + 1}",
@@ -538,6 +496,40 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                   icon: const Icon(Icons.close),
                   onPressed: () {
                     Navigator.pop(context);
+                  },
+                ),
+              ),
+            ),
+            Positioned(
+              top: 80,
+              right: 15,
+              child: Container(
+                height: 35,
+                width: 35,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: IconButton(
+                  constraints: const BoxConstraints(),
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.download),
+                  onPressed: () async {
+                    debugPrint(widget.galleryItems![currentIndex!]);
+                    final status = await GallerySaver.saveImage(widget.galleryItems![currentIndex!]);
+                    if (status == true) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Image saved to gallery"),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Error saving image"),
+                        ),
+                      );
+                    }
                   },
                 ),
               ),
