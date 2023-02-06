@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Example'),
+      home: const MyHomePage(title: 'Multi Image Layout Example'),
     );
   }
 }
@@ -47,7 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
-                  "https://picsum.photos/id/1/200/300",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
+                ],
+                captions: [
+                  "Writing a very long text to check if the feature works as expected. This is a caption for the image. I hope it works as expected.",
                 ],
               ),
               SizedBox(height: 30),
@@ -55,11 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
-                  "https://picsum.photos/id/1/200/300",
-                  "https://picsum.photos/id/2/200/300",
+                  "https://4.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4684313123.jpg",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
                 ],
                 captions: [
-                  "Caption 1",
+                  "Writing a very long text to check if the feature works as expected. This is a caption for the image. I hope it works as expected.",
                   "Caption 2",
                 ],
               ),
@@ -68,9 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
-                  "https://picsum.photos/id/1/200/300",
-                  "https://picsum.photos/id/2/200/300",
-                  "https://picsum.photos/id/3/200/300",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
+                  "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg",
                 ],
               ),
               SizedBox(height: 30),
@@ -78,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
-                  "https://picsum.photos/id/1/200/300",
-                  "https://picsum.photos/id/2/200/300",
-                  "https://picsum.photos/id/3/200/300",
-                  "https://picsum.photos/id/4/200/300"
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
+                  "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg",
+                  "https://1.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/6294874831.jpg"
                 ],
               ),
               SizedBox(height: 30),
@@ -89,12 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 10),
               MultiImageViewer(
                 images: [
-                  "https://picsum.photos/id/1/200/300",
-                  "https://picsum.photos/id/2/200/300",
-                  "https://picsum.photos/id/3/200/300",
-                  "https://picsum.photos/id/4/200/300",
-                  "https://picsum.photos/id/5/200/300",
-                  "https://picsum.photos/id/5/200/300",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
+                  "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg",
+                  "https://1.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/6294874831.jpg",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                  "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
+                  "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg",
                 ],
                 textStyle: TextStyle(
                   fontWeight: FontWeight.bold,
