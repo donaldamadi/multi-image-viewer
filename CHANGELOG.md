@@ -1,11 +1,16 @@
+# 0.0.6
+
+- Added download image feature
+- Updated Dependencies
+
 ## 0.0.5
 
 - Optimized code for maximum pub points
 
 ## 0.0.3
 
-- Made height and with parameters dynamic
-- Added Caption 
+- Made height and width parameters dynamic
+- Added Caption feature
 - Updates to README
 - Added a CHANGELOG
 
