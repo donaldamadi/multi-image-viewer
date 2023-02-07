@@ -1,4 +1,8 @@
-# 0.0.6
+# 0.0.7
+
+- Optimizied code for maximum pub points
+
+## 0.0.6
 
 - Added download image feature
 - Updated Dependencies
