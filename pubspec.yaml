@@ -9,7 +9,10 @@ environment:
 
 dependencies:
   photo_view: ^0.14.0
-  gallery_saver: ^2.3.2
+  gallery_saver: 
+    git:
+      url: https://github.com/jerrypaulsam/gallery_saver.git
+      ref: master
   readmore: ^2.2.0
   flutter:
     sdk: flutter
