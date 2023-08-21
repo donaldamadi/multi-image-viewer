@@ -1,4 +1,9 @@
-# 0.0.7
+# 0.0.8
+
+- Changed the process of listing images and captions by introducing List<ImageModel>
+- Captions are now fully optional
+
+## 0.0.7
 
 - Optimizied code for maximum pub points
 
