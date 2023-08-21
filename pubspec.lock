@@ -41,14 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.1"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -92,7 +84,7 @@ packages:
     source: sdk
     version: "0.0.0"
   gallery_saver:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: gallery_saver
       sha256: df8b7e207ca12d64c71e0710a7ee3bc48aa7206d51cc720716fedb1543a66712
@@ -155,13 +147,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
-  multi_image_layout:
-    dependency: "direct main"
-    description:
-      path: ".."
-      relative: true
-    source: path
-    version: "0.0.8"
   path:
     dependency: transitive
     description:
@@ -219,7 +204,7 @@ packages:
     source: hosted
     version: "2.1.3"
   photo_view:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: photo_view
       sha256: "8036802a00bae2a78fc197af8a158e3e2f7b500561ed23b4c458107685e645bb"
@@ -251,7 +236,7 @@ packages:
     source: hosted
     version: "4.2.4"
   readmore:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: readmore
       sha256: "99c2483202f7c7e98c50834d72be2b119aefecf4497ca1960ae9d5f418eb1481"
