@@ -12,8 +12,9 @@ and the Flutter guide for
 -->
 # Description
 
-This package gives a twitter-like layout to images. Simply add one or more images and watch the layout change.
-Captions can also be added to each image.
+Experience dynamic image layout capabilities with this Flutter package. 
+Effortlessly integrate single or multiple images and observe the adaptive layout transformation in real-time. 
+Enhanced with caption support for each image, it offers both versatility and precision for developers keen on superior UI experiences.
 
 ![Screenshot_1656283282](https://user-images.githubusercontent.com/45544067/175837492-d73e2493-64d4-402d-aa98-1e87ddb70942.png)
 
@@ -41,18 +42,18 @@ Add the following keys to your Info.plist file, located in `<project root>/ios/R
 import 'package:multi_image_layout/multi_image_viewer.dart';
 MultiImageViewer(
   images: [
-    "https://picsum.photos/id/1/200/300",
-    "https://picsum.photos/id/2/200/300",
-    "https://picsum.photos/id/3/200/300",
-  ],
-  captions: [
-    "Caption 1",
-    "Caption 2",
-    "Caption 3",
+    ImageModel(
+      imageUrl: "https://4.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4684313123.jpg",
+      caption: "Caption 1",
+    ),
+    ImageModel(
+      imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+      caption: "Caption 2",
+    ),
   ],
   height: 200,
   width: 200,
- ),
+),
 ```
 
 ## 🤝 Contributing
