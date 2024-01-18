@@ -1,11 +1,15 @@
-# 0.0.8
+# 0.0.9
 
-- Changed the process of listing images and captions by introducing List<ImageModel>
+- Added `networkImageHeaders` parameter to allow for custom headers to be passed to the network image
+
+## 0.0.8
+
+- Changed the process of listing images and captions by introducing List\<ImageModel>
 - Captions are now fully optional
 
 ## 0.0.7
 
-- Optimizied code for maximum pub points
+- Optimized code for maximum pub points
 
 ## 0.0.6
 

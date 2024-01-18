@@ -12,8 +12,8 @@ and the Flutter guide for
 -->
 # Description
 
-Experience dynamic image layout capabilities with this Flutter package. 
-Effortlessly integrate single or multiple images and observe the adaptive layout transformation in real-time. 
+Experience dynamic image layout capabilities with this Flutter package.
+Effortlessly integrate single or multiple images and observe the adaptive layout transformation in real-time.
 Enhanced with caption support for each image, it offers both versatility and precision for developers keen on superior UI experiences.
 
 ![Screenshot_1656283282](https://user-images.githubusercontent.com/45544067/175837492-d73e2493-64d4-402d-aa98-1e87ddb70942.png)
@@ -30,11 +30,17 @@ import 'package:multi_image_layout/multi_image_viewer.dart';
 
 Add the following keys to your Info.plist file, located in `<project root>/ios/Runner/Info.plist`:
 
-* `NSPhotoLibraryUsageDescription` - describe why your app needs permission for the photo library. This is called Privacy - Photo Library Usage Description in the visual editor.
+* `NSPhotoLibraryAddUsageDescription` - describe why your app needs permission for the photo library. This is called Privacy - Photo Library Usage Description in the visual editor.
 
 ### Android
 
+You need to ask for storage permission to save an image to the gallery. You can handle the storage permission using [flutter_permission_handler](https://pub.dev/packages/permission_handler) package.
+
 * `android.permission.WRITE_EXTERNAL_STORAGE` - Permission for usage of external storage
+
+```xml
+<application android:requestLegacyExternalStorage="true" .....>
+```
 
 ## Usage
 

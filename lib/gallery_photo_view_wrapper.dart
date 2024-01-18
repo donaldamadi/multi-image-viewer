@@ -1,8 +1,9 @@
 import 'multi_image_layout.dart';
+import 'dart:ui' as ui;
 
 class GalleryPhotoViewWrapper extends StatefulWidget {
   GalleryPhotoViewWrapper({
-    Key? key,
+    super.key,
     this.loadingBuilder,
     this.backgroundDecoration,
     this.minScale,
@@ -12,8 +13,7 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
     this.captions,
     this.scrollDirection = Axis.horizontal,
     this.headers,
-  })  : pageController = PageController(initialPage: initialIndex!),
-        super(key: key);
+  }) : pageController = PageController(initialPage: initialIndex!);
 
   final BoxDecoration? backgroundDecoration;
   final List<String>? galleryItems;
@@ -34,6 +34,7 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
 class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   int? currentIndex;
   bool showCaptions = false;
+  final GlobalKey _globalKey = GlobalKey();
 
   @override
   void initState() {
@@ -59,14 +60,44 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   PhotoViewGalleryPageOptions _buildItem(BuildContext context, int index) {
     final String item = widget.galleryItems![index];
     return PhotoViewGalleryPageOptions(
-      imageProvider: item.contains('http')
-          ? NetworkImage(item, headers: widget.headers)
-          : AssetImage(item) as ImageProvider<Object>,
+      imageProvider: item.contains('http') ? NetworkImage(item, headers: widget.headers) : AssetImage(item) as ImageProvider<Object>,
       initialScale: PhotoViewComputedScale.contained,
       minScale: PhotoViewComputedScale.contained * (0.5 + index / 10),
       maxScale: PhotoViewComputedScale.covered * 4.1,
       heroAttributes: PhotoViewHeroAttributes(tag: item),
     );
+  }
+
+  Future<bool> _saveLocalImage() async {
+    RenderRepaintBoundary boundary = _globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    ui.Image image = await boundary.toImage();
+    ByteData? byteData = await (image.toByteData(format: ui.ImageByteFormat.png));
+    if (byteData != null) {
+      final result = await ImageGallerySaver.saveImage(
+        byteData.buffer.asUint8List(),
+        quality: 80,
+        name: "Image-${DateTime.now()}",
+      );
+      debugPrint(result.toString());
+      if (result['isSuccess'] == true) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<bool> _saveNetworkImage(String networkImage) async {
+    var response = await Dio().get(networkImage, options: Options(responseType: ResponseType.bytes));
+    final result = await ImageGallerySaver.saveImage(
+      Uint8List.fromList(response.data),
+      quality: 80,
+      name: "Image-${DateTime.now()}",
+    );
+    debugPrint(result.toString());
+    if (result['isSuccess'] == true) {
+      return true;
+    }
+    return false;
   }
 
   @override
@@ -144,8 +175,14 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                 padding: EdgeInsets.zero,
                 icon: const Icon(Icons.download),
                 onPressed: () async {
+                  bool status = false;
                   debugPrint(widget.galleryItems![currentIndex!]);
-                  final status = await GallerySaver.saveImage(widget.galleryItems![currentIndex!]);
+                  if (widget.galleryItems![currentIndex!].contains('http')) {
+                    await _saveNetworkImage(widget.galleryItems![currentIndex!]);
+                  } else {
+                    await _saveLocalImage();
+                  }
+                  if (!mounted) return;
                   if (status == true) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
