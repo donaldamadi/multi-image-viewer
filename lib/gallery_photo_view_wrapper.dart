@@ -11,19 +11,20 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
     required this.galleryItems,
     this.captions,
     this.scrollDirection = Axis.horizontal,
+    this.headers,
   })  : pageController = PageController(initialPage: initialIndex!),
         super(key: key);
 
   final BoxDecoration? backgroundDecoration;
   final List<String>? galleryItems;
   final List<String>? captions;
+  final Map<String, String>? headers;
   final int? initialIndex;
   final LoadingBuilder? loadingBuilder;
   final dynamic maxScale;
   final dynamic minScale;
   final PageController pageController;
   final Axis scrollDirection;
-
   @override
   State<StatefulWidget> createState() {
     return _GalleryPhotoViewWrapperState();
@@ -58,7 +59,9 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   PhotoViewGalleryPageOptions _buildItem(BuildContext context, int index) {
     final String item = widget.galleryItems![index];
     return PhotoViewGalleryPageOptions(
-      imageProvider: item.contains('http') ? NetworkImage(item) : AssetImage(item) as ImageProvider<Object>,
+      imageProvider: item.contains('http')
+          ? NetworkImage(item, headers: widget.headers)
+          : AssetImage(item) as ImageProvider<Object>,
       initialScale: PhotoViewComputedScale.contained,
       minScale: PhotoViewComputedScale.contained * (0.5 + index / 10),
       maxScale: PhotoViewComputedScale.covered * 4.1,
