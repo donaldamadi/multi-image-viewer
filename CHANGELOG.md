@@ -1,4 +1,8 @@
-# 0.0.9
+# 0.1.0
+
+- Optimized code for maximum pub points
+
+## 0.0.9
 
 - Added `networkImageHeaders` parameter to allow for custom headers to be passed to the network image
 

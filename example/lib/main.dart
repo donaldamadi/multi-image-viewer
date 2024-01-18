@@ -46,7 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 10),
               MultiImageViewer(images: [
                 ImageModel(
-                  imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
+                  imageUrl:
+                      "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg",
                   caption:
                       "Ut eu pariatur sit cupidatat ut sit enim do enim eiusmod officia enim consequat fugiat. Est amet tempor duis tempor sunt reprehenderit officia ut est cillum tempor. Cupidatat sunt nostrud laboris exercitation. Officia do eu consectetur officia velit in nulla ullamco qui elit laborum anim. Do dolore magna id adipisicing excepteur in qui. Irure quis pariatur amet in.",
                 )
@@ -57,11 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
               MultiImageViewer(
                 images: [
                   ImageModel(
-                    imageUrl: "https://4.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4684313123.jpg",
+                    imageUrl:
+                        "https://4.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4684313123.jpg",
                     caption: "Caption 1",
                   ),
                   ImageModel(
-                    imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                    imageUrl:
+                        "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
                     caption: "Caption 2",
                   ),
                 ],
@@ -72,10 +75,15 @@ class _MyHomePageState extends State<MyHomePage> {
               MultiImageViewer(
                 images: [
                   ImageModel(
-                      imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg", caption: "A caption here"),
-                  ImageModel(imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                      caption: "A caption here"),
                   ImageModel(
-                      imageUrl: "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg",
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg",
                       caption: "Another caption here"),
                 ],
               ),
@@ -84,10 +92,18 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 10),
               MultiImageViewer(
                 images: [
-                  ImageModel(imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg"),
-                  ImageModel(imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
-                  ImageModel(imageUrl: "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg"),
-                  ImageModel(imageUrl: "https://1.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/6294874831.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://1.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/6294874831.jpg"),
                 ],
               ),
               const SizedBox(height: 30),
@@ -96,15 +112,28 @@ class _MyHomePageState extends State<MyHomePage> {
               MultiImageViewer(
                 images: [
                   ImageModel(
-                    imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                    imageUrl:
+                        "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
                     caption: "A caption here",
                   ),
-                  ImageModel(imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
-                  ImageModel(imageUrl: "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg"),
-                  ImageModel(imageUrl: "https://1.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/6294874831.jpg"),
-                  ImageModel(imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg"),
-                  ImageModel(imageUrl: "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
-                  ImageModel(imageUrl: "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://1.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/6294874831.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4086993630.jpg"),
+                  ImageModel(
+                      imageUrl:
+                          "https://2.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/5713335642.jpg"),
                 ],
                 textStyle: const TextStyle(
                   fontWeight: FontWeight.bold,

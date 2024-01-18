@@ -2,9 +2,7 @@ import 'multi_image_layout.dart';
 
 /// View Image(s)
 void openImage(BuildContext context, final int index, List<String> unitImages,
-    List<String>? captions,
-    Map<String,String>? headers
-    ) {
+    List<String>? captions, Map<String, String>? headers) {
   Navigator.push(
     context,
     MaterialPageRoute(
