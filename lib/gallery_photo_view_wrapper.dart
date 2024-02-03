@@ -186,10 +186,10 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                   bool status = false;
                   debugPrint(widget.galleryItems![currentIndex!]);
                   if (widget.galleryItems![currentIndex!].contains('http')) {
-                    await _saveNetworkImage(
+                    status = await _saveNetworkImage(
                         widget.galleryItems![currentIndex!]);
                   } else {
-                    await _saveLocalImage();
+                    status = await _saveLocalImage();
                   }
                   if (!mounted) return;
                   if (status == true) {
