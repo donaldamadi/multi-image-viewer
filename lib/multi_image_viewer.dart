@@ -1,4 +1,5 @@
 import 'multi_image_layout.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MultiImageViewer extends StatelessWidget {
   const MultiImageViewer({
@@ -38,8 +39,8 @@ class MultiImageViewer extends StatelessWidget {
   /// Width of the image(s).
   final double? width;
 
-  NetworkImage _createNetworkImage(String path) =>
-      NetworkImage(path, headers: networkImageHeaders);
+  CachedNetworkImageProvider _createNetworkImage(String path) =>
+      CachedNetworkImageProvider(path, headers: networkImageHeaders);
 
   @override
   Widget build(BuildContext context) {

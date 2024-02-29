@@ -1,5 +1,6 @@
 import 'multi_image_layout.dart';
 import 'dart:ui' as ui;
+import 'package:cached_network_image/cached_network_image.dart';
 
 class GalleryPhotoViewWrapper extends StatefulWidget {
   GalleryPhotoViewWrapper({
@@ -62,7 +63,7 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
     final String item = widget.galleryItems![index];
     return PhotoViewGalleryPageOptions(
       imageProvider: item.contains('http')
-          ? NetworkImage(item, headers: widget.headers)
+          ? CachedNetworkImageProvider(item, headers: widget.headers)
           : AssetImage(item) as ImageProvider<Object>,
       initialScale: PhotoViewComputedScale.contained,
       minScale: PhotoViewComputedScale.contained * (0.5 + index / 10),

@@ -12,3 +12,4 @@ export 'image_model.dart';
 export 'package:flutter/rendering.dart';
 export 'package:flutter/services.dart';
 export 'package:dio/dio.dart';
+export 'package:cached_network_image/cached_network_image.dart';
