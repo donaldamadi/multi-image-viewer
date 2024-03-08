@@ -1,6 +1,5 @@
 import 'multi_image_layout.dart';
 import 'dart:ui' as ui;
-import 'package:cached_network_image/cached_network_image.dart';
 
 class GalleryPhotoViewWrapper extends StatefulWidget {
   GalleryPhotoViewWrapper({

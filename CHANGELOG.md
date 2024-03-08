@@ -1,4 +1,8 @@
-# 0.1.0
+# 0.1.1
+
+- Use CachedNetworkImage instead of NetworkImage for better performance and caching images
+
+## 0.1.0
 
 - Optimized code for maximum pub points
 
