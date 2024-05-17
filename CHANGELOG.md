@@ -1,4 +1,8 @@
-# 0.1.1
+# 0.1.2
+
+- Upgrade dependencies
+
+## 0.1.1
 
 - Use CachedNetworkImage instead of NetworkImage for better performance and caching images
 

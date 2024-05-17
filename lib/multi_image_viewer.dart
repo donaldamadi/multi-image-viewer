@@ -1,9 +1,8 @@
 import 'multi_image_layout.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class MultiImageViewer extends StatelessWidget {
   const MultiImageViewer({
-    Key? key,
+    super.key,
     required this.images,
     this.backgroundColor = Colors.black87,
     this.textStyle = const TextStyle(
@@ -13,7 +12,7 @@ class MultiImageViewer extends StatelessWidget {
     this.height = 205,
     this.width,
     this.networkImageHeaders,
-  }) : super(key: key);
+  });
 
   /// Headers for network image
   final Map<String, String>? networkImageHeaders;
