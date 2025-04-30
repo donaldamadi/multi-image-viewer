@@ -16,9 +16,8 @@ Experience dynamic image layout capabilities with this Flutter package.
 Effortlessly integrate single or multiple images and observe the adaptive layout transformation in real-time.
 Enhanced with caption support for each image, it offers both versatility and precision for developers keen on superior UI experiences.
 
-![Screenshot_1656283282](https://user-images.githubusercontent.com/45544067/175837492-d73e2493-64d4-402d-aa98-1e87ddb70942.png)
+![Screenshot_20250430-162040](https://github.com/user-attachments/assets/53622c5f-655e-4162-8369-da0e502267b0)
 
-![Screenshot_1656283292](https://user-images.githubusercontent.com/45544067/175837509-accf5250-e616-46df-979a-ae0f4ea85133.png)
 
 ## Getting started
 
