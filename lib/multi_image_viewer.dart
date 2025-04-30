@@ -9,9 +9,12 @@ class MultiImageViewer extends StatelessWidget {
       fontSize: 30,
       color: Colors.white,
     ),
-    this.height = 205,
+    this.height = 216,
     this.width,
     this.networkImageHeaders,
+    this.enableSave = true,
+    this.gap = 2,
+    this.radius = const Radius.circular(5),
   });
 
   /// Headers for network image
@@ -38,6 +41,15 @@ class MultiImageViewer extends StatelessWidget {
   /// Width of the image(s).
   final double? width;
 
+  /// Responsible for displaying download icon button
+  final bool enableSave;
+
+  /// Gap between Images in px
+  final double gap;
+
+  /// Border Radius for edge corners
+  final Radius radius;
+
   CachedNetworkImageProvider _createNetworkImage(String path) =>
       CachedNetworkImageProvider(path, headers: networkImageHeaders);
 
@@ -53,23 +65,22 @@ class MultiImageViewer extends StatelessWidget {
 
     switch (images.length) {
       case 0:
-        return const SizedBox();
+        return const SizedBox.shrink();
 
       case 1:
         return GestureDetector(
-          onTap: () => openImage(
-              context, 0, imagesList, captionList, networkImageHeaders),
+          onTap: () => openImage(context, 0, imagesList, captionList,
+              networkImageHeaders, enableSave),
           child: Container(
             height: height,
             width: width ?? defaultWidth,
             decoration: BoxDecoration(
               color: backgroundColor,
               image: DecorationImage(
-                  image: _createNetworkImage(images.first.imageUrl),
-                  fit: BoxFit.cover),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(5),
+                image: _createNetworkImage(images.first.imageUrl),
+                fit: BoxFit.cover,
               ),
+              borderRadius: BorderRadius.all(radius),
             ),
           ),
         );
@@ -80,43 +91,38 @@ class MultiImageViewer extends StatelessWidget {
           width: width ?? defaultWidth,
           child: Row(children: [
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 1),
-                child: GestureDetector(
-                  onTap: () => openImage(
-                      context, 0, imagesList, captionList, networkImageHeaders),
-                  child: Container(
-                    height: height,
-                    width: width == null ? defaultWidth / 2 : width! / 2,
-                    decoration: BoxDecoration(
-                        color: backgroundColor,
-                        image: DecorationImage(
-                            image: _createNetworkImage(images.first.imageUrl),
-                            fit: BoxFit.cover),
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            bottomLeft: Radius.circular(5))),
+              child: GestureDetector(
+                onTap: () => openImage(context, 0, imagesList, captionList,
+                    networkImageHeaders, enableSave),
+                child: Container(
+                  height: height,
+                  width: width == null ? defaultWidth / 2 : width! / 2,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    image: DecorationImage(
+                        image: _createNetworkImage(images.first.imageUrl),
+                        fit: BoxFit.cover),
+                    borderRadius:
+                        BorderRadius.only(topLeft: radius, bottomLeft: radius),
                   ),
                 ),
               ),
             ),
+            SizedBox(width: gap),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 1),
-                child: GestureDetector(
-                  onTap: () => openImage(
-                      context, 1, imagesList, captionList, networkImageHeaders),
-                  child: Container(
-                    height: height,
-                    width: width == null ? defaultWidth / 2 : width! / 2,
-                    decoration: BoxDecoration(
-                        color: backgroundColor,
-                        image: DecorationImage(
-                            image: _createNetworkImage(images[1].imageUrl),
-                            fit: BoxFit.cover),
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(5),
-                            bottomRight: Radius.circular(5))),
+              child: GestureDetector(
+                onTap: () => openImage(context, 1, imagesList, captionList,
+                    networkImageHeaders, enableSave),
+                child: Container(
+                  height: height,
+                  width: width == null ? defaultWidth / 2 : width! / 2,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    image: DecorationImage(
+                        image: _createNetworkImage(images[1].imageUrl),
+                        fit: BoxFit.cover),
+                    borderRadius: BorderRadius.only(
+                        topRight: radius, bottomRight: radius),
                   ),
                 ),
               ),
@@ -130,43 +136,54 @@ class MultiImageViewer extends StatelessWidget {
           width: width ?? defaultWidth,
           child: Row(children: [
             Expanded(
+              child: GestureDetector(
+                onTap: () => openImage(context, 0, imagesList, captionList,
+                    networkImageHeaders, enableSave),
+                child: Container(
+                  width: width == null ? defaultWidth / 2 : width! / 2,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    image: DecorationImage(
+                        image: _createNetworkImage(images.first.imageUrl),
+                        fit: BoxFit.cover),
+                    borderRadius:
+                        BorderRadius.only(topLeft: radius, bottomLeft: radius),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: gap),
+            Expanded(
               child: Column(
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 2, bottom: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 0, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image: _createNetworkImage(
-                                      images.first.imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(5))),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 1, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: backgroundColor,
+                          image: DecorationImage(
+                              image: _createNetworkImage(images[1].imageUrl),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.only(topRight: radius),
                         ),
                       ),
                     ),
                   ),
+                  SizedBox(height: gap),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 1, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image:
-                                      _createNetworkImage(images[1].imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(5))),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 2, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                          color: backgroundColor,
+                          image: DecorationImage(
+                              image: _createNetworkImage(images[2].imageUrl),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.only(bottomRight: radius),
                         ),
                       ),
                     ),
@@ -174,29 +191,8 @@ class MultiImageViewer extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: GestureDetector(
-                  onTap: () => openImage(
-                      context, 2, imagesList, captionList, networkImageHeaders),
-                  child: Container(
-                    width: width == null ? defaultWidth / 2 : width! / 2,
-                    decoration: BoxDecoration(
-                        color: backgroundColor,
-                        image: DecorationImage(
-                            image: _createNetworkImage(images[2].imageUrl),
-                            fit: BoxFit.cover),
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(5),
-                            bottomRight: Radius.circular(5))),
-                  ),
-                ),
-              ),
-            ),
           ]),
         );
-
       case 4:
         return SizedBox(
           height: height,
@@ -206,88 +202,74 @@ class MultiImageViewer extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 2, bottom: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 0, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          // width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image: _createNetworkImage(
-                                      images.first.imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(5))),
-                        ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 0, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        // width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                            color: backgroundColor,
+                            image: DecorationImage(
+                                image:
+                                    _createNetworkImage(images.first.imageUrl),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.only(topLeft: radius)),
                       ),
                     ),
                   ),
+                  SizedBox(height: gap),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 1, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image:
-                                      _createNetworkImage(images[1].imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(5))),
-                        ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 2, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                            color: backgroundColor,
+                            image: DecorationImage(
+                                image: _createNetworkImage(images[2].imageUrl),
+                                fit: BoxFit.cover),
+                            borderRadius:
+                                BorderRadius.only(bottomLeft: radius)),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(width: gap),
             Expanded(
               child: Column(
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 0, bottom: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 2, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image:
-                                      _createNetworkImage(images[2].imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  topRight: Radius.circular(5))),
-                        ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 1, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                            color: backgroundColor,
+                            image: DecorationImage(
+                                image: _createNetworkImage(images[1].imageUrl),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.only(topRight: radius)),
                       ),
                     ),
                   ),
+                  SizedBox(height: gap),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 0, top: 0),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 3, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image:
-                                      _createNetworkImage(images[3].imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(5))),
-                        ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 3, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                            color: backgroundColor,
+                            image: DecorationImage(
+                                image: _createNetworkImage(images[3].imageUrl),
+                                fit: BoxFit.cover),
+                            borderRadius:
+                                BorderRadius.only(bottomRight: radius)),
                       ),
                     ),
                   ),
@@ -306,40 +288,34 @@ class MultiImageViewer extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 2, bottom: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 0, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: backgroundColor,
-                              image: DecorationImage(
-                                  image: _createNetworkImage(
-                                      images.first.imageUrl),
-                                  fit: BoxFit.cover),
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(5))),
-                        ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 0, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: backgroundColor,
+                            image: DecorationImage(
+                                image:
+                                    _createNetworkImage(images.first.imageUrl),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.only(topLeft: radius)),
                       ),
                     ),
                   ),
+                  SizedBox(height: gap),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 1, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                            color: backgroundColor,
-                            image: DecorationImage(
-                                image: _createNetworkImage(images[1].imageUrl),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(5),
-                            ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 2, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                          color: backgroundColor,
+                          image: DecorationImage(
+                              image: _createNetworkImage(images[2].imageUrl),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: radius,
                           ),
                         ),
                       ),
@@ -348,58 +324,54 @@ class MultiImageViewer extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(width: gap),
             Expanded(
               child: Column(
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 0, bottom: 2),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 2, imagesList,
-                            captionList, networkImageHeaders),
-                        child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
-                          decoration: BoxDecoration(
-                            color: backgroundColor,
-                            image: DecorationImage(
-                                image: _createNetworkImage(images[2].imageUrl),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(5),
-                            ),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 1, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                          color: backgroundColor,
+                          image: DecorationImage(
+                              image: _createNetworkImage(images[1].imageUrl),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.only(
+                            topRight: radius,
                           ),
                         ),
                       ),
                     ),
                   ),
+                  SizedBox(height: gap),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 0, top: 0),
-                      child: GestureDetector(
-                        onTap: () => openImage(context, 3, imagesList,
-                            captionList, networkImageHeaders),
+                    child: GestureDetector(
+                      onTap: () => openImage(context, 3, imagesList,
+                          captionList, networkImageHeaders, enableSave),
+                      child: Container(
+                        width: width == null ? defaultWidth / 2 : width! / 2,
+                        decoration: BoxDecoration(
+                          color: backgroundColor,
+                          image: DecorationImage(
+                              image: _createNetworkImage(images[3].imageUrl),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: radius,
+                          ),
+                        ),
                         child: Container(
-                          width: width == null ? defaultWidth / 2 : width! / 2,
                           decoration: BoxDecoration(
-                            color: backgroundColor,
-                            image: DecorationImage(
-                                image: _createNetworkImage(images[3].imageUrl),
-                                fit: BoxFit.cover),
-                            borderRadius: const BorderRadius.only(
-                              bottomRight: Radius.circular(5),
+                            color: Colors.black.withValues(alpha: 0.5),
+                            borderRadius: BorderRadius.only(
+                              bottomRight: radius,
                             ),
                           ),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black.withOpacity(0.5),
-                              borderRadius: const BorderRadius.only(
-                                bottomRight: Radius.circular(5),
-                              ),
-                            ),
-                            child: Center(
-                                child: Text("+${images.length - 4}",
-                                    style: textStyle)),
-                          ),
+                          child: Center(
+                              child: Text("+${images.length - 4}",
+                                  style: textStyle)),
                         ),
                       ),
                     ),
