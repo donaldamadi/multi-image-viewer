@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'multi_image_layout.dart';
 import 'dart:ui' as ui;
 
@@ -82,15 +81,15 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
     ByteData? byteData =
         await (image.toByteData(format: ui.ImageByteFormat.png));
     if (byteData != null) {
-      await FlutterImageGallerySaver.saveImage(
+      var result = await ImageGallerySaverPlus.saveImage(
         byteData.buffer.asUint8List(),
-        // quality: 80,
-        // name: "Image-${DateTime.now()}",
+        quality: 80,
+        name: "Image-${DateTime.now()}",
       );
       // debugPrint(result.toString());
-      // if (result['isSuccess'] == true) {
-      return true;
-      // }
+      if (result['isSuccess'] == true) {
+        return true;
+      }
     }
     return false;
   }
@@ -99,15 +98,15 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
     var response = await Dio()
         .get(networkImage, options: Options(responseType: ResponseType.bytes));
     if (response.data != null) {
-      await FlutterImageGallerySaver.saveImage(
+      var result = await ImageGallerySaverPlus.saveImage(
         response.data.buffer.asUint8List(),
-        // quality: 80,
-        // name: "Image-${DateTime.now()}",
+        quality: 80,
+        name: "Image-${DateTime.now()}",
       );
       // debugPrint(result.toString());
-      // if (result['isSuccess'] == true) {
-      return true;
-      // }
+      if (result['isSuccess'] == true) {
+        return true;
+      }
     }
     return false;
   }

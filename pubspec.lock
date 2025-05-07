@@ -126,14 +126,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.1"
-  flutter_image_gallery_saver:
-    dependency: "direct main"
-    description:
-      name: flutter_image_gallery_saver
-      sha256: "7140dbdfa1006bf8357232bff257a73b92282906aa28126fa40d1e95bf454550"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -163,6 +155,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  image_gallery_saver_plus:
+    dependency: "direct main"
+    description:
+      name: image_gallery_saver_plus
+      sha256: "199b9e24f8d85e98f11e3d35571ab68ae50626ad40e2bb85c84383f69a6950ad"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -466,4 +466,4 @@ packages:
     version: "1.0.4"
 sdks:
   dart: ">=3.7.0-0 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
+  flutter: ">=3.24.0"
