@@ -1,3 +1,4 @@
+// ignore_for_file: use_build_context_synchronously
 import 'multi_image_layout.dart';
 import 'dart:ui' as ui;
 
@@ -13,6 +14,7 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
     this.captions,
     this.scrollDirection = Axis.horizontal,
     this.headers,
+    this.enableSave = true,
   }) : pageController = PageController(initialPage: initialIndex!);
 
   final BoxDecoration? backgroundDecoration;
@@ -25,6 +27,7 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
   final dynamic minScale;
   final PageController pageController;
   final Axis scrollDirection;
+  final bool enableSave;
   @override
   State<StatefulWidget> createState() {
     return _GalleryPhotoViewWrapperState();
@@ -78,12 +81,12 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
     ByteData? byteData =
         await (image.toByteData(format: ui.ImageByteFormat.png));
     if (byteData != null) {
-      final result = await ImageGallerySaver.saveImage(
+      var result = await ImageGallerySaverPlus.saveImage(
         byteData.buffer.asUint8List(),
         quality: 80,
         name: "Image-${DateTime.now()}",
       );
-      debugPrint(result.toString());
+      // debugPrint(result.toString());
       if (result['isSuccess'] == true) {
         return true;
       }
@@ -94,14 +97,16 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   Future<bool> _saveNetworkImage(String networkImage) async {
     var response = await Dio()
         .get(networkImage, options: Options(responseType: ResponseType.bytes));
-    final result = await ImageGallerySaver.saveImage(
-      Uint8List.fromList(response.data),
-      quality: 80,
-      name: "Image-${DateTime.now()}",
-    );
-    debugPrint(result.toString());
-    if (result['isSuccess'] == true) {
-      return true;
+    if (response.data != null) {
+      var result = await ImageGallerySaverPlus.saveImage(
+        response.data.buffer.asUint8List(),
+        quality: 80,
+        name: "Image-${DateTime.now()}",
+      );
+      // debugPrint(result.toString());
+      if (result['isSuccess'] == true) {
+        return true;
+      }
     }
     return false;
   }
@@ -174,38 +179,41 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                 },
               ),
             ),
-            Positioned(
-              top: 80,
-              right: 15,
-              child: IconButton(
-                color: Colors.white,
-                constraints: const BoxConstraints(),
-                padding: EdgeInsets.zero,
-                icon: const Icon(Icons.download),
-                onPressed: () async {
-                  bool status = false;
-                  debugPrint(widget.galleryItems![currentIndex!]);
-                  if (widget.galleryItems![currentIndex!].contains('http')) {
-                    status = await _saveNetworkImage(
-                        widget.galleryItems![currentIndex!]);
-                  } else {
-                    status = await _saveLocalImage();
-                  }
-                  if (!mounted) return;
-                  if (status == true) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Image saved to gallery"),
-                      ),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Error saving image"),
-                      ),
-                    );
-                  }
-                },
+            Visibility(
+              visible: widget.enableSave,
+              child: Positioned(
+                top: 80,
+                right: 15,
+                child: IconButton(
+                  color: Colors.white,
+                  constraints: const BoxConstraints(),
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.download),
+                  onPressed: () async {
+                    bool status = false;
+                    debugPrint(widget.galleryItems![currentIndex!]);
+                    if (widget.galleryItems![currentIndex!].contains('http')) {
+                      status = await _saveNetworkImage(
+                          widget.galleryItems![currentIndex!]);
+                    } else {
+                      status = await _saveLocalImage();
+                    }
+                    if (!mounted) return;
+                    if (status == true) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Image saved to gallery"),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Error saving image"),
+                        ),
+                      );
+                    }
+                  },
+                ),
               ),
             )
           ],

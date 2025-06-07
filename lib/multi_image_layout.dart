@@ -1,7 +1,7 @@
 library multi_image_layout;
 
 export 'package:flutter/material.dart';
-export 'package:image_gallery_saver/image_gallery_saver.dart';
+export 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 export 'package:photo_view/photo_view.dart';
 export 'package:photo_view/photo_view_gallery.dart';
 export 'package:readmore/readmore.dart';

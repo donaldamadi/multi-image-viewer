@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   photo_view: ^0.15.0
-  image_gallery_saver: ^2.0.3
+  image_gallery_saver_plus: ^4.0.1
   readmore: ^3.0.0
   dio: ^5.4.3+1
   cached_network_image: ^3.3.1
