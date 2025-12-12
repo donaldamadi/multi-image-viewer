@@ -1,4 +1,4 @@
-library multi_image_layout;
+library;
 
 export 'package:flutter/material.dart';
 export 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';

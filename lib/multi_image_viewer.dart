@@ -369,9 +369,17 @@ class MultiImageViewer extends StatelessWidget {
                               bottomRight: radius,
                             ),
                           ),
-                          child: Center(
-                              child: Text("+${images.length - 4}",
-                                  style: textStyle)),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black.withValues(alpha: 0.5),
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(5),
+                              ),
+                            ),
+                            child: Center(
+                                child: Text("+${images.length - 4}",
+                                    style: textStyle)),
+                          ),
                         ),
                       ),
                     ),
