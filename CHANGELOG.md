@@ -1,10 +1,16 @@
-# 0.1.2
+# 1.0.0
 
-- Upgrade dependencies
+- Fixed `use_build_context_synchronously` lint by checking `context.mounted`.
+- Updated `Color.withOpacity` to `Color.withValues` for Flutter 3.27 compatibility.
+- Updated Dependencies
+
+## 0.1.2
+
+- Updated dependencies
 
 ## 0.1.1
 
-- Use CachedNetworkImage instead of NetworkImage for better performance and caching images
+- Used CachedNetworkImage instead of NetworkImage for better performance and caching images
 
 ## 0.1.0
 
