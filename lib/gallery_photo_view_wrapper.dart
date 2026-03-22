@@ -47,7 +47,8 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   }
 
   void checkCaptionLength() {
-    if (widget.captions != null && widget.captions!.length == widget.galleryItems!.length) {
+    if (widget.captions != null &&
+        widget.captions!.length == widget.galleryItems!.length) {
       showCaptions = true;
     }
   }
@@ -63,7 +64,9 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   PhotoViewGalleryPageOptions _buildItem(BuildContext context, int index) {
     final String item = widget.galleryItems![index];
     return PhotoViewGalleryPageOptions(
-      imageProvider: item.contains('http') ? CachedNetworkImageProvider(item, headers: widget.headers) : AssetImage(item) as ImageProvider<Object>,
+      imageProvider: item.contains('http')
+          ? CachedNetworkImageProvider(item, headers: widget.headers)
+          : AssetImage(item) as ImageProvider<Object>,
       initialScale: PhotoViewComputedScale.contained,
       minScale: PhotoViewComputedScale.contained * (0.5 + index / 10),
       maxScale: PhotoViewComputedScale.covered * 4.1,
@@ -72,9 +75,11 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   }
 
   Future<bool> _saveLocalImage() async {
-    RenderRepaintBoundary boundary = _globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    RenderRepaintBoundary boundary =
+        _globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
     ui.Image image = await boundary.toImage();
-    ByteData? byteData = await (image.toByteData(format: ui.ImageByteFormat.png));
+    ByteData? byteData =
+        await (image.toByteData(format: ui.ImageByteFormat.png));
     if (byteData != null) {
       final result = await ImageGallerySaverPlus.saveImage(
         byteData.buffer.asUint8List(),
@@ -90,7 +95,8 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   }
 
   Future<bool> _saveNetworkImage(String networkImage) async {
-    var response = await Dio().get(networkImage, options: Options(responseType: ResponseType.bytes));
+    var response = await Dio()
+        .get(networkImage, options: Options(responseType: ResponseType.bytes));
     final result = await ImageGallerySaverPlus.saveImage(
       Uint8List.fromList(response.data),
       quality: 80,
@@ -116,20 +122,24 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
           height: MediaQuery.of(context).size.height,
         ),
         child: Stack(
-          alignment: showCaptions ? Alignment.bottomCenter : Alignment.bottomRight,
+          alignment:
+              showCaptions ? Alignment.bottomCenter : Alignment.bottomRight,
           children: <Widget>[
-            PhotoViewGallery.builder(
-              scrollPhysics: const BouncingScrollPhysics(),
-              builder: _buildItem,
-              itemCount: widget.galleryItems!.length,
-              loadingBuilder: widget.loadingBuilder,
-              backgroundDecoration: widget.backgroundDecoration ??
-                  const BoxDecoration(
-                    color: Color.fromARGB(255, 9, 40, 1),
-                  ),
-              pageController: widget.pageController,
-              onPageChanged: onPageChanged,
-              scrollDirection: widget.scrollDirection,
+            RepaintBoundary(
+              key: _globalKey,
+              child: PhotoViewGallery.builder(
+                scrollPhysics: const BouncingScrollPhysics(),
+                builder: _buildItem,
+                itemCount: widget.galleryItems!.length,
+                loadingBuilder: widget.loadingBuilder,
+                backgroundDecoration: widget.backgroundDecoration ??
+                    const BoxDecoration(
+                      color: Color.fromARGB(255, 9, 40, 1),
+                    ),
+                pageController: widget.pageController,
+                onPageChanged: onPageChanged,
+                scrollDirection: widget.scrollDirection,
+              ),
             ),
             Container(
               padding: const EdgeInsets.all(20.0),
@@ -145,7 +155,8 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                       trimMode: TrimMode.Line,
                       trimCollapsedText: 'Show more',
                       trimExpandedText: 'Show less',
-                      moreStyle: const TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+                      moreStyle: const TextStyle(
+                          fontSize: 17.0, fontWeight: FontWeight.bold),
                     )
                   : Text(
                       "Image ${currentIndex! + 1}",
@@ -169,39 +180,41 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                 },
               ),
             ),
-            Positioned(
-              top: 80,
-              right: 15,
-              child: IconButton(
-                color: Colors.white,
-                constraints: const BoxConstraints(),
-                padding: EdgeInsets.zero,
-                icon: const Icon(Icons.download),
-                onPressed: () async {
-                  bool status = false;
-                  debugPrint(widget.galleryItems![currentIndex!]);
-                  if (widget.galleryItems![currentIndex!].contains('http')) {
-                    status = await _saveNetworkImage(widget.galleryItems![currentIndex!]);
-                  } else {
-                    status = await _saveLocalImage();
-                  }
-                  if (!context.mounted) return;
-                  if (status == true) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Image saved to gallery"),
-                      ),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Error saving image"),
-                      ),
-                    );
-                  }
-                },
-              ),
-            )
+            if (widget.enableSave)
+              Positioned(
+                top: 80,
+                right: 15,
+                child: IconButton(
+                  color: Colors.white,
+                  constraints: const BoxConstraints(),
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(Icons.download),
+                  onPressed: () async {
+                    bool status = false;
+                    debugPrint(widget.galleryItems![currentIndex!]);
+                    if (widget.galleryItems![currentIndex!].contains('http')) {
+                      status = await _saveNetworkImage(
+                          widget.galleryItems![currentIndex!]);
+                    } else {
+                      status = await _saveLocalImage();
+                    }
+                    if (!context.mounted) return;
+                    if (status == true) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Image saved to gallery"),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Error saving image"),
+                        ),
+                      );
+                    }
+                  },
+                ),
+              )
           ],
         ),
       ),
