@@ -29,7 +29,17 @@ import 'package:multi_image_layout/multi_image_viewer.dart';
 
 Add the following keys to your Info.plist file, located in `<project root>/ios/Runner/Info.plist`:
 
-* `NSPhotoLibraryAddUsageDescription` - describe why your app needs permission for the photo library. This is called Privacy - Photo Library Usage Description in the visual editor.
+* `NSPhotoLibraryAddUsageDescription` - describe why your app needs permission to save images to the photo library.
+* `NSPhotoLibraryUsageDescription` - describe why your app needs access to the photo library.
+
+Without these keys, iOS may terminate the app when the save action is triggered.
+
+```xml
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>This app saves images to your photo library.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>This app accesses your photo library to save and manage images.</string>
+```
 
 ### Android
 
