@@ -6,6 +6,9 @@ Flexible Flutter layouts for mixed media grids and fullscreen viewing.
 layouts, then open them in a fullscreen viewer with captions, save support, and
 media-specific controls.
 
+<img width="505" height="1018" alt="Screenshot 2026-03-22 at 23 42 57" src="https://github.com/user-attachments/assets/77ea9937-001d-4b05-b258-4a0afff40786" />
+
+
 ![Screenshot_20250430-162040](https://github.com/user-attachments/assets/53622c5f-655e-4162-8369-da0e502267b0)
 
 ## Features
