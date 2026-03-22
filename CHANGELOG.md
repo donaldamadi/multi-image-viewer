@@ -1,3 +1,18 @@
+# 2.0.0
+
+- Added mixed image and video support in grid layouts and fullscreen viewer.
+- Added `ImageModel.video(...)` for video items.
+- Added `autoPlay` to `MultiImageViewer` with a default value of `true`.
+- Added fullscreen video playback controls including play/pause, mute, elapsed time, total duration, and draggable seek bar.
+- Added zoomable fullscreen video presentation using `PhotoView.customChild`.
+- Added shimmer placeholders for loading network images.
+- Added video badges for video tiles in grid layouts.
+- Added save support for both images and videos.
+- Fixed `enableSave` so the fullscreen save button now respects the parameter.
+- Fixed local save capture by attaching a valid repaint boundary.
+- Added network video cache warm-up and cached replay support for faster repeat playback.
+- Added internal helpers for temporary media file handling and video caching.
+
 # 1.0.0
 
 - Fixed `use_build_context_synchronously` lint by checking `context.mounted`.
