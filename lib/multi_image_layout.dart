@@ -13,3 +13,5 @@ export 'package:flutter/rendering.dart';
 export 'package:flutter/services.dart';
 export 'package:dio/dio.dart';
 export 'package:cached_network_image/cached_network_image.dart';
+export 'package:path_provider/path_provider.dart';
+export 'package:video_player/video_player.dart';
