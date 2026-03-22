@@ -38,6 +38,28 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text("Mixed Image + Video"),
+              const SizedBox(height: 10),
+              MultiImageViewer(
+                autoPlay: true,
+                images: const [
+                  ImageModel(
+                    imageUrl:
+                        "https://4.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/4684313123.jpg",
+                    caption: "Image caption",
+                  ),
+                  ImageModel.video(
+                    videoUrl:
+                        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4",
+                    caption: "Video caption",
+                  ),
+                  ImageModel(
+                    imageUrl:
+                        "https://3.img-dpreview.com/files/p/TS250x250~sample_galleries/3800753625/8719688791.jpg",
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
               const Text("Single(1) Image"),
               const SizedBox(height: 10),
               MultiImageViewer(
